@@ -51,7 +51,7 @@ jobs:
           
       - name: Run Docker container
         run: |
-          docker run --rm myapp --success
+          docker run --rm my-lab-app --success
           
       - name: Save Docker image as tar file
         run: |
