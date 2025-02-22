@@ -35,3 +35,19 @@ jobs:
       with:
         name: lab-deb-package
         path: myprogram.deb
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download .deb artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: lab-deb-package
+          path: .
+      - name: Build Docker image
+        run: |
+          docker build --build-arg DEB_PACKAGE=myprogram.deb -t myapp:latest .
+      - name: Run Docker container
+        run: |
+          docker run --rm myapp:latest --success
