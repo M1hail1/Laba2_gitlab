@@ -5,7 +5,7 @@
 # Сборка программы
 build:
 	@echo "Сборка программы..."
-	go build -o lab ~Загрузки/michail-lab/cmd
+	go build -o lab ./cmd/lab
 
 # Запуск тестов
 test:
