@@ -50,4 +50,4 @@ jobs:
           docker build --build-arg DEB_PACKAGE=myprogram.deb -t myapp:latest .
       - name: Run Docker container
         run: |
-          docker run --rm myapp:latest --success
+          docker run --rm myapp --success
